@@ -1,29 +1,43 @@
-void	quick_sort(int *arr, int first, int last)
+void	quick_sort(int *arr, int start, int end)
 {
-	int	left;
-	int	right;
+	int	i;
+	int	future_pivot_i;
 	int	pivot;
 	int	tmp;
 
-	left = first;
-	right = last;
-	pivot = first;
-	if (left >= right)
+	// halting condition
+	if (start >= end)
 			return ;
-	while (left < right)
+	
+	// to iterate over the array:
+	i = start;
+	// to know where the pivot will be
+	future_pivot_i = start;
+	// this variable is here only for readability. could be = arr[start] too
+	pivot = arr[end];
+
+	while (i < end)
 	{
-		while (left < last && arr[left] < arr[pivot])
-			left++;
-		while (right > first && arr[right] > arr[pivot])
-			right--;
-		if (left < right && arr[left] > arr[right])
+		// if a number is lower than the pivot:
+		// place it on the left (swap it)
+		// move future location of the pivot forward
+		if (arr[i] < pivot)
 		{
-			tmp = arr[left];
-			arr[left] = arr[right];
-			arr[right] = tmp;
+			tmp = arr[i];
+			arr[i] = arr[future_pivot_i];
+			arr[future_pivot_i] = tmp;
+			future_pivot_i++;
 		}
+		i++;
 	}
-	// could it be right - 1?
-	quick_sort(arr, first, right);
-	quick_sort(arr, right + 1, last);
+	// at this point our array is organised in this way:
+	// [lower numbers, higher numbers, pivot]
+	// let's place the pivot in between
+	// future_pivot_i is pointing at the right position
+	arr[end] = arr[future_pivot_i];	
+	arr[future_pivot_i] = pivot;
+
+	// call function recursively for lower and higher blocks
+	quick_sort(arr, start, future_pivot_i - 1);
+	quick_sort(arr, future_pivot_i + 1, end);
 }
