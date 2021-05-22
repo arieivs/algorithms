@@ -1,45 +1,62 @@
 #include <stdlib.h>
-#include <stdio.h>
 
 // divide the array in two and call merge on the result of dividing them again
 // in this way it will first divide the array in single elements
 // and then merge then in an ordered manner
 
-int	*merge(int *arr1, int size1, int *arr2, int size2)
+void	merge(int *arr, int start, int middle, int end, int *tmp_arr)
 {
 	int	i;
 	int	j;
-	int	*arr_total;
+	int	k;
 
-	i = 0;
-	j = 0;
-	arr_total = (int *)malloc(sizeof(int) * (size1 + size2));
-	while (i < size1 || j < size2)
+	i = start;
+	j = middle + 1;
+	k = start;
+	// copy the smallest number
+	while (i <= middle && j <= end)
 	{
-		if (arr1[i] && (j == size2 || arr1[i] < arr2[j]))
-		{
-			arr_total[i + j] = arr1[i];
-			i++;
-		}
-		else if (arr2[j])
-		{
-			arr_total[i + j] = arr2[j];
-			j++;
-		}
+		if (arr[i] <= arr[j])
+			tmp_arr[k] = arr[i++];
+		else
+			tmp_arr[k] = arr[j++];
+		k++;
 	}
-	return (arr_total);
+	// in case the first half is bigger
+	while (i <= middle)
+		tmp_arr[k++] = arr[i++];
+	// in case the second half is bigger
+	while (j <= end)
+		tmp_arr[k++] = arr[j++];
+	// update array with the more sorted temporary version
+	i = start;
+	while (i <= end)
+	{
+		arr[i] = tmp_arr[i];
+		i++;
+	}
 }
 
-int	*merge_sort(int *arr, int start, int end)
+void	divide(int *arr, int start, int end, int *tmp_arr)
 {
 	int	middle;
-
 	// halting condition
-	if (start >= end)
-		return (arr);
+	if (end - start <= 0)
+		return ;
 	
-	middle = (end - start) / 2;
-	printf("yo start %d end %d\n", start, end);
-	return (merge(merge_sort(arr, start, middle), middle + 1 - start,
-		merge_sort(arr, middle + 1, end), end + 1 - middle));
+	middle = (start + end) / 2;
+	// call function recursively to keep dividing
+	divide(arr, start, middle, tmp_arr);
+	divide(arr, middle + 1, end, tmp_arr);
+	// and then merge once you have the result
+	merge(arr, start, middle, end, tmp_arr);
+}
+
+void	merge_sort(int *arr, int start, int end)
+{
+	int	*tmp_arr;
+
+	tmp_arr = (int *)malloc(sizeof(int) * (end + 1 - start));
+	divide(arr, start, end, tmp_arr);
+	free(tmp_arr);
 }
