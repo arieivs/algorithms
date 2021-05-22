@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include "sort.h"
 
 // divide the array in two and call merge on both halves 
 // so it will first divide the array in single elements and then merge them in an ordered manner
