@@ -1,9 +1,9 @@
 # Sorting Algorithms
 
 There are many well-known sorting algorithms, some easier than others, some faster than others.
-I recommend this [sorting algorithms visualisation](https://www.youtube.com/watch?v=ZZuD6iUe3Pc) - I can't seem to get tired of it.
-The ideal sorting algorithm will depend on the situation, on your constraints and goal.
-Watch [this introduction on some sorting algorithms and Big O Notation](https://www.youtube.com/watch?v=RGuJga2Gl_k).
+I recommend this [sorting algorithms visualisation](https://www.youtube.com/watch?v=ZZuD6iUe3Pc) - I can't get enough of it.
+The ideal sorting algorithm will depend on the situation, on your constraints and goals.
+Watch [this introduction on sorting algorithms and Big O Notation](https://www.youtube.com/watch?v=RGuJga2Gl_k).
 You can find short explanations and resources to further understand how the following sorting algorithms work below.
 
 <br />
@@ -61,9 +61,6 @@ Then, these elements need to be placed in the right order while being merged.
 In order to obtain this behaviour, we need to recursively call the function which divides the array in two, and afterwards call the auxiliary function which merges those two halves.
 In this way we make sure the merge helping function is only called when both halves have already been sorted.
 
-(I might do a small animation to show the order in which each action takes place, which is not exactly the same everyone uses to explain the concept. Let’s see if I have patience)
-
-![merge_sort](https://github.com/arieivs/algorithms/blob/master/sort/merge_sort.gif)
-
+The merge auxiliary function compares the values in both arrays and copies them from lowest to highest into the final array.
 (I believe) this method requires more memory than the previous ones, as we need to create a temporary array to help us sort the other one.
 Watch [this video on how to implement merge sort](https://www.youtube.com/watch?v=x_Z9FcAPmbk).
