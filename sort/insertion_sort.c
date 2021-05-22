@@ -1,4 +1,4 @@
-int	*insertion_sort(int *arr, int length)
+void	insertion_sort(int *arr, int length)
 {
 	int i;
 	int	j;
@@ -23,5 +23,4 @@ int	*insertion_sort(int *arr, int length)
 		}
 		i++;
 	}
-	return (arr);
 }

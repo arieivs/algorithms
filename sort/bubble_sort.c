@@ -1,4 +1,4 @@
-int	*bubble_sort(int *arr, int length)
+void	bubble_sort(int *arr, int length)
 {
 	int	sorted;
 	int	i;
@@ -18,6 +18,5 @@ int	*bubble_sort(int *arr, int length)
 		i++;
 	}
 	if (sorted)
-		return (bubble_sort(arr, length));
-	return (arr);
+		bubble_sort(arr, length);
 }

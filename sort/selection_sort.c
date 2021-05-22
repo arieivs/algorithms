@@ -1,4 +1,4 @@
-int	*selection_sort(int *arr, int length)
+void	selection_sort(int *arr, int length)
 {
 	int	i;
 	int	j;
@@ -24,5 +24,4 @@ int	*selection_sort(int *arr, int length)
 		}
 		i++;
 	}
-	return (arr);
 }
