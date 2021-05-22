@@ -57,11 +57,13 @@ Start with [this introduction to the merge sort algorithm](https://www.youtube.c
 Great, now… how do we code this?
 
 First, the array needs to be divided all the way down into single elements.
-Then these elements need to be merged and placed in the right order while doing so.
+Then, these elements need to be placed in the right order while being merged.
 In order to obtain this behaviour, we need to recursively call the function which divides the array in two, and afterwards call the auxiliary function which merges those two halves.
-In this way we make sure the merge helping function is only called when both halves have been already sorted.
+In this way we make sure the merge helping function is only called when both halves have already been sorted.
 
 (I might do a small animation to show the order in which each action takes place, which is not exactly the same everyone uses to explain the concept. Let’s see if I have patience)
+
+![merge_sort](https://github.com/arieivs/algorithms/blob/master/sort/merge_sort.gif)
 
 (I believe) this method requires more memory than the previous ones, as we need to create a temporary array to help us sort the other one.
 Watch [this video on how to implement merge sort](https://www.youtube.com/watch?v=x_Z9FcAPmbk).
