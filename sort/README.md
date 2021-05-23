@@ -31,6 +31,22 @@ Then compare the swapped item to all the previous ones and keep on swapping it u
 
 <br />
 
+## 🐚 Shell Sort
+Shell Sort is usually presented as a more efficient version of Insertion Sort.
+Watch [this video on the concept of shell sorting](https://www.youtube.com/watch?v=ddeLSDsYVp8).
+Instead of comparing each element to another one right next to it, we compare two elements with a certain distance between each other and swap them if necessary.
+We then move on comparing every two elements of the array with the same distance between each other.
+The gap between the two elements is reduced on each iteration over the array, until it reaches one.
+The sequence of intervals used is called gap sequence.
+
+The initial gap (in comparison to the array’s length) and the gap sequence influence the time complexity of the algorithm, so we must choose them wisely.
+Originally, Donald Shell used half of the array’s length as the initial gap and kept dividing it by two.
+Hibbard, Knuth, Sedgewick and Marci Ciura are some of the names you might come across while researching on this subject, each one with a gap sequence of their own.
+
+(to be continued...)
+
+<br />
+
 ## ⏱  Quick Sort
 Quick Sort is a Divide and Conquer algorithm.
 Start by watching [this video on the concept of the quick sort algorithm](https://www.youtube.com/watch?v=WaNLJf8xzC4).
