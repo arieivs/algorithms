@@ -1,11 +1,4 @@
-#include <stdio.h>
-//#include <time.h>
-
-int		*bubble_sort(int *arr, int length);
-int		*selection_sort(int *arr, int length);
-int		*insertion_sort(int *arr, int length);
-void	quick_sort(int *arr, int start, int end);
-void	merge_sort(int *arr, int start, int end);
+#include "sort.h"
 
 void	print_array(int *arr, int length)
 {
@@ -26,6 +19,7 @@ int main(void)
 	int	arr3[] = {3, 70, 45, 1, 9, 26, 59, 33, 82, 2, 15, 45, 10, 100, 0, 91};
 	int	arr4[] = {3, 70, 45, 1, 9, 26, 59, 33, 82, 2, 15, 45, 10, 100, 0, 91};
 	int	arr5[] = {3, 70, 45, 1, 9, 26, 59, 33, 82, 2, 15, 45, 10, 100, 0, 91};
+	int	arr6[] = {3, 70, 45, 1, 9, 26, 59, 33, 82, 2, 15, 45, 10, 100, 0, 91};
 	//time_t	before;
 	//time_t	after;
 
@@ -45,12 +39,16 @@ int main(void)
 	printf("Insertion Sort\n");
 	print_array(arr3, length);
 
-	quick_sort(arr4, 0, length - 1);
-	printf("Quick Sort\n");
+	shell_sort(arr4, length);
+	printf("Shell Sort\n");
 	print_array(arr4, length);
 
-	merge_sort(arr5, 0, length - 1);
-	printf("Merge Sort\n");
+	quick_sort(arr5, 0, length - 1);
+	printf("Quick Sort\n");
 	print_array(arr5, length);
+
+	merge_sort(arr6, 0, length - 1);
+	printf("Merge Sort\n");
+	print_array(arr6, length);
 	return (0);
 }
