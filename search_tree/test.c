@@ -9,6 +9,7 @@ int	main(void)
 	t_node	*son;
 	t_node	*daughter;
 
+	/* Creating the tree */
 	grandma = ft_node_new(5);
 	printf("Created grandma %d\n", grandma->n);
 	dad = ft_node_new(10);
@@ -32,5 +33,13 @@ int	main(void)
 	printf("Dad has %d kid: %d\n", dad->nb_kids, dad->kids[0]->n);
 	ft_add_kid(&dad, daughter);
 	printf("Dad has %d kids: %d\n", dad->nb_kids, dad->kids[1]->n);
+
+	/* Searching the tree */
+	printf("Is dad a son of grandma? %d\n", tree_has_node(grandma, 10));
+	printf("Is mum a daughter of grandma? %d\n", tree_has_node(grandma, 11));
+	printf("Is aunt a daughter of grandma? %d\n", tree_has_node(grandma, 15));
+	printf("Is daughter a grandaughter of grandma? %d\n", tree_has_node(grandma, 22));
+	printf("Is son a grandson of grandma? %d\n", tree_has_node(grandma, 20));
+	printf("Is nephew a grandson of grandma? %d\n", tree_has_node(grandma, 27));
 	return (0);
 }
