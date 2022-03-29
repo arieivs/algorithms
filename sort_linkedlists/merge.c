@@ -19,6 +19,30 @@ t_intlist	*split_and_get_middle(t_intlist *list)
 	return (middle);
 }
 
+void	sort_and_merge(t_intlist *list1, t_intlist *list2)
+{
+	t_intlist	*to_be_added;
+	t_intlist	*merged_list;
+
+	while (list1 || list2)
+	{
+		if (list1 && (!list2 || list1->n <= list2->n))
+		{
+			to_be_added = list1;
+			list1 = list1->next;
+		}
+		else if (list2) // think I dont need the if
+		{
+			to_be_added = list2;
+			list2 = list2->next;
+		}
+		to_be_added->next = NULL;
+		ft_intlst_add_back(&merged_list, to_be_added);
+	}
+	print_list(merged_list);
+	// what do I do with it??
+}
+
 void	merge_sort(t_intlist *list)
 {
 	t_intlist	*middle;
@@ -35,4 +59,6 @@ void	merge_sort(t_intlist *list)
 	// call function recursively to keep dividing
 	merge_sort(list);
 	merge_sort(middle);
+
+	sort_and_merge(list, middle);
 }
