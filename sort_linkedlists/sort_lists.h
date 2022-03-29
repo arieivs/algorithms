@@ -13,5 +13,7 @@ t_intlist	*ft_intlst_new(int nb);
 void		ft_intlst_add_back(t_intlist **lst, t_intlist *new);
 void		ft_intlst_push_back(t_intlist **lst, int nb);
 int			ft_intlst_size(t_intlist *lst);
+void		merge_sort(t_intlist *list);
+void		print_list(t_intlist *list);
 
 #endif

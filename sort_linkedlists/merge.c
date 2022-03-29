@@ -29,4 +29,6 @@ void	merge_sort(t_intlist *list)
 	// making them point null
 	middle = split_and_get_middle(list);
 	printf("middle: %d\n", middle->n);
+	print_list(list);
+	print_list(middle);
 }
