@@ -25,10 +25,14 @@ void	merge_sort(t_intlist *list)
 
 	if (!list || ft_intlst_size(list) <= 1)
 		return ;
-	// instead of finding indexes, we should really split
-	// making them point null
 	middle = split_and_get_middle(list);
+	// list points to the first half
+	// middle points to the second half
 	printf("middle: %d\n", middle->n);
 	print_list(list);
 	print_list(middle);
+
+	// call function recursively to keep dividing
+	merge_sort(list);
+	merge_sort(middle);
 }
