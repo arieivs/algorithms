@@ -19,10 +19,10 @@ t_intlist	*split_and_get_middle(t_intlist *list)
 	return (middle);
 }
 
-void	sort_and_merge(t_intlist *list1, t_intlist *list2)
+t_intlist	*sort_and_merge(t_intlist *list1, t_intlist *list2)
 {
 	t_intlist	*to_be_added;
-	t_intlist	*merged_list;
+	t_intlist	*merged_list = NULL;
 
 	while (list1 || list2)
 	{
@@ -39,26 +39,25 @@ void	sort_and_merge(t_intlist *list1, t_intlist *list2)
 		to_be_added->next = NULL;
 		ft_intlst_add_back(&merged_list, to_be_added);
 	}
-	print_list(merged_list);
-	// what do I do with it??
+	return (merged_list);
 }
 
-void	merge_sort(t_intlist *list)
+void	merge_sort(t_intlist **list)
 {
+	t_intlist	*first;
 	t_intlist	*middle;
 
-	if (!list || ft_intlst_size(list) <= 1)
+	// halting condition
+	if (!*list || ft_intlst_size(*list) <= 1)
 		return ;
-	middle = split_and_get_middle(list);
-	// list points to the first half
+	first = *list;
+	middle = split_and_get_middle(*list);
+	// first points to the first half
 	// middle points to the second half
-	printf("middle: %d\n", middle->n);
-	print_list(list);
-	print_list(middle);
 
 	// call function recursively to keep dividing
-	merge_sort(list);
-	merge_sort(middle);
+	merge_sort(&first);
+	merge_sort(&middle);
 
-	sort_and_merge(list, middle);
+	*list = sort_and_merge(first, middle);
 }

@@ -21,6 +21,7 @@ int	main(void)
 	while (i < arr_len)
 		ft_intlst_push_back(&list, arr[i++]);
 	print_list(list);	
-	merge_sort(list);
+	merge_sort(&list);
+	print_list(list);	
 	return (0);
 }
