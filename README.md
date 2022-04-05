@@ -80,3 +80,8 @@ In this way we make sure the merge helping function is only called when both hal
 The merge auxiliary function compares the values in both arrays and copies them from lowest to highest into the final array.
 (I believe) this method requires more memory than the previous ones, as we need to create a temporary array to help us sort the other one.
 Watch [this video on how to implement merge sort](https://www.youtube.com/watch?v=x_Z9FcAPmbk).
+
+<br />
+
+## 🖇 Sorting Linked Lists - with Merge Sort
+Same principle as with arrays, but one needs to be more careful with pointers (and pointers to pointers). [Geeks for Geeks](https://www.geeksforgeeks.org/merge-sort-for-linked-list/) is a great resource.
