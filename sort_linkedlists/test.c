@@ -10,6 +10,11 @@ void	print_list(t_intlist *list)
 	printf("\n");
 }
 
+static void	intlist_del(void *content)
+{
+	*(int *)content = 0;
+}
+
 int	main(void)
 {
 	int			arr[] = {35, 10, 22, 5, 9, 44, 0, -1, 80, 53, 17};
@@ -22,6 +27,7 @@ int	main(void)
 		ft_intlst_push_back(&list, arr[i++]);
 	print_list(list);	
 	merge_sort(&list);
-	print_list(list);	
+	print_list(list);
+	ft_lstclear(&list, &intlist_del);
 	return (0);
 }

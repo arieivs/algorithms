@@ -49,3 +49,16 @@ int	ft_intlst_size(t_intlist *lst)
 	}
 	return (size);
 }
+
+void	ft_lstclear(t_intlist **lst, void (*del)(void *))
+{
+	t_intlist	*to_delete;
+
+	while (*lst)
+	{
+		to_delete = *lst;
+		*lst = (*lst)->next;
+		del((void*)&to_delete->n);
+		free(to_delete);
+	}
+}
